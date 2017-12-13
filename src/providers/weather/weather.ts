@@ -18,12 +18,6 @@ export class WeatherProvider {
   }
 
   getWeather(city, state) {
-    return new Promise(resolve => {
-      this.httpClient.get(this.url + '/' + state + '/' + city + '.json').subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log("Error: " + err);
-      });
-    });
+    return this.httpClient.get(this.url + '/' + state + '/' + city + '.json');
   }
 }
